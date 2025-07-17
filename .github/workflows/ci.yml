@@ -1,0 +1,13 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with: { version: 8 }
+      - run: pnpm install
+      - run: pnpm run validate          # CLI in tools/validate.ts

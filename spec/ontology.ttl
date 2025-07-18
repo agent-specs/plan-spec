@@ -1,0 +1,16 @@
+@prefix plan:  <https://raw.githubusercontent.com/agent-specs/plan-spec/main/spec/ontology#> .
+@prefix schema: <http://schema.org/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+plan:Beacon      a rdfs:Class ;
+    rdfs:subClassOf schema:Action ;
+    rdfs:label "Beacon" .
+
+plan:Offer       a rdfs:Class ; rdfs:label "Offer" .
+plan:Plan        a rdfs:Class ; rdfs:label "Plan" .
+plan:Capability  a rdfs:Class ; rdfs:label "Capability" .
+
+plan:beaconId    a rdf:Property ; rdfs:domain plan:Beacon ; rdfs:range xsd:string .
+plan:priceUsd    a rdf:Property ; rdfs:domain plan:Offer  ; rdfs:range xsd:decimal .

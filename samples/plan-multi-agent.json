@@ -1,0 +1,10 @@
+{
+  "objectType": "Plan",
+  "planId":   "86b5f1e2-6c50-4e71-9c83-b3b6a4c7b5d3",
+  "beaconId": "8addf831-4a0a-4f8e-983c-bb0df0d3f2e1",
+  "escrowId": "ESC#9b3f7d2a-1c8e-4f5b-a6d9-0e2f8c4a7b1d",
+  "tasks": [
+    { "id":"t1","capability":"urn:cap:fetch-dataset","assignedTo":"did:agent:alice","status":"PENDING" },
+    { "id":"t2","capability":"urn:cap:analyse-sentiment","assignedTo":"did:agent:bob","dependsOn":["t1"],"status":"PENDING" }
+  ]
+}

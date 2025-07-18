@@ -1,0 +1,15 @@
+{
+  "senderDid": "did:agent:alice",
+  "sentAt": "2025-07-17T14:30:00Z",
+  "payloadType": "Beacon",
+  "payload": {
+    "objectType": "Beacon",
+    "beaconId": "8addf831-4a0a-4f8e-983c-bb0df0d3f2e1",
+    "title": "Need satellite climate data 2024/25",
+    "description": "Temperature anomaly readings for Arctic circle.",
+    "minTrust": 70,
+    "expires": "2025-08-01T00:00:00Z",
+    "tags": ["climate", "satellite", "arctic"]
+  },
+  "sig": "3dfc5c6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c"
+}

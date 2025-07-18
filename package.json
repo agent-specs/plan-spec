@@ -1,0 +1,50 @@
+{
+  "name": "plan-spec",
+  "version": "0.1.0",
+  "description": "JSON Schema and tooling for PlanObject & SignedEnvelope specification",
+  "type": "module",
+  "scripts": {
+  "validate": "ajv -c ajv-formats -s spec/plan-schema.json -d \"samples/{beacon-example,offer-example,capability-example,plan-multi-agent}.json\" --spec=draft2020 && ajv -c ajv-formats -s spec/envelope-schema.json -d samples/signed-envelope-example.json --spec=draft2020",
+    "lint": "eslint . --ext .ts,.js,.json",
+    "build": "tsc"
+  },
+  "keywords": [
+    "json-schema",
+    "multi-agent",
+    "coordination",
+    "specification",
+    "did",
+    "signed-envelope"
+  ],
+  "author": "Plan-Spec Contributors",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agent-specs/plan-spec.git"
+  },
+  "bugs": {
+    "url": "https://github.com/agent-specs/plan-spec/issues"
+  },
+  "homepage": "https://github.com/agent-specs/plan-spec#readme",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ajv": "^8.17.1",
+    "ajv-cli": "^5.0.0",
+    "ajv-formats": "^3.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "files": [
+    "spec/",
+    "docs/",
+    "samples/",
+    "tools/",
+    "README.md",
+    "LICENSE",
+    "CONTRIBUTING.md"
+  ],
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  }
+}

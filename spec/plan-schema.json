@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/agent-specs/plan-spec/main/spec/plan-schema.json",
+  "title": "Plan-Spec Core Objects",
+  "oneOf": [
+    { "$ref": "#/$defs/Beacon" },
+    { "$ref": "#/$defs/Offer" },
+    { "$ref": "#/$defs/Plan"  },
+    { "$ref": "#/$defs/Capability" }
+  ],
+  "$defs": {
+    "Beacon": {
+      "type": "object",
+      "required": ["beaconId", "title", "description", "minTrust", "expires"],
+      "additionalProperties": false,
+      "properties": {
+        "objectType": { "const": "Beacon" },
+        "beaconId": { "type": "string", "format": "uuid" },
+        "title":      { "type": "string", "maxLength": 140 },
+        "description":{ "type": "string" },
+        "minTrust":   { "type": "integer", "minimum": 0, "maximum": 100 },
+        "expires":    { "type": "string", "format": "date-time" },
+        "tags":       { "type": "array", "items": { "type": "string" } }
+      }
+    },
+
+    "Offer": {
+      "type": "object",
+      "required": ["offerId","beaconId","providerDid","priceUsd","validUntil"],
+      "additionalProperties": false,
+      "properties": {
+        "objectType": { "const": "Offer" },
+        "offerId":   { "type": "string", "format": "uuid" },
+        "beaconId":  { "type": "string", "format": "uuid" },
+        "providerDid": { "type": "string" },
+        "priceUsd":  { "type": "number", "minimum": 0 },
+        "licenseUri":{ "type": "string", "format": "uri" },
+        "validUntil":{ "type": "string", "format": "date-time" }
+      }
+    },
+
+    "Capability": {
+      "type": "object",
+      "required": ["capabilityId","agentDid","tags"],
+      "additionalProperties": false,
+      "properties": {
+        "objectType": { "const": "Capability" },
+        "capabilityId": { "type": "string", "format": "uuid" },
+        "agentDid": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "pricing": { "type": "string" }
+      }
+    },
+
+    "Task": {
+      "type": "object",
+      "required": ["id","capability"],
+      "properties": {
+        "id":    { "type": "string" },
+        "capability": { "type": "string" },
+        "assignedTo": { "type": "string" },
+        "dependsOn":  { "type": "array", "items": { "type": "string" } },
+        "status": { "enum": ["PENDING","RUNNING","DONE","FAILED"] }
+      }
+    },
+
+    "Plan": {
+      "type": "object",
+      "required": ["planId","beaconId","tasks"],
+      "additionalProperties": false,
+      "properties": {
+        "objectType": { "const": "Plan" },
+        "planId":   { "type": "string", "format": "uuid" },
+        "beaconId": { "type": "string", "format": "uuid" },
+        "escrowId": { "type": "string" },
+        "tasks": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Task" },
+          "minItems": 1
+        }
+      }
+    }
+  }
+}

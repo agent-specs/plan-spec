@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/agent-specs/plan-spec/main/spec/envelope-schema.json",
+  "title": "SignedEnvelope",
+  "type": "object",
+  "required": ["senderDid","sentAt","payloadType","payload","sig"],
+  "additionalProperties": false,
+  "properties": {
+    "senderDid":  { "type": "string" },
+    "sentAt":     { "type": "string", "format": "date-time" },
+    "payloadType":{ "enum": ["Beacon","Offer","Plan","Capability"] },
+    "payload":    { "type": "object" },
+    "sig":        { "type": "string" }
+  }
+}

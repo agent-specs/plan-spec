@@ -1,0 +1,9 @@
+{
+  "objectType": "Beacon",
+  "beaconId":   "8addf831-4a0a-4f8e-983c-bb0df0d3f2e1",
+  "title":      "Need satellite climate data 2024/25",
+  "description":"Temperature anomaly readings for Arctic circle.",
+  "minTrust":   70,
+  "expires":    "2025-08-01T00:00:00Z",
+  "tags":       ["climate","satellite","arctic"]
+}
